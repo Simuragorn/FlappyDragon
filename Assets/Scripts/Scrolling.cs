@@ -9,12 +9,26 @@ public class Scrolling : MonoBehaviour
     [SerializeField] private List<SpriteRenderer> sprites;
     private List<Transform> slides;
     [SerializeField] private float speed;
+    [SerializeField] private float pauseSpeed;
+    private float actualSpeed;
     private float cameraRange;
     private float slideWidth;
     private int firstSlideIndex = 0;
     private int lastSlideIndex;
+
+    public void Pause()
+    {
+        actualSpeed = pauseSpeed;
+    }
+
+    public void Continue()
+    {
+        actualSpeed = speed;
+    }
+
     void Start()
     {
+        actualSpeed = speed;
         slides = sprites.Select(s => s.gameObject.transform).ToList();
         slideWidth = sprites[0].bounds.size.x;
         cameraRange = camera.orthographicSize;
@@ -32,7 +46,7 @@ public class Scrolling : MonoBehaviour
     {
         slides.ForEach(s =>
         {
-            float distance = Time.deltaTime * speed;
+            float distance = Time.deltaTime * actualSpeed;
             s.transform.position = new Vector3(s.transform.position.x - distance, s.transform.position.y, s.transform.position.z);
         });
     }

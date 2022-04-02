@@ -2,12 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private float force;
     [SerializeField] private Rigidbody2D rigidbody;
-    [SerializeField] private float jumpDelayInSeconds;
-    private bool jumpLoading;
+    private Quaternion downRotation;
+    private Quaternion forwardRotation;
+    [SerializeField] float tiltSmooth;
+    [SerializeField] Animator animator;
+
+    private void Start()
+    {
+        downRotation = Quaternion.Euler(0, 0, -90);
+        forwardRotation = Quaternion.Euler(0, 0, 35);
+    }
 
     void Update()
     {
@@ -17,7 +27,7 @@ public class PlayerMove : MonoBehaviour
     private void ControlsHandle()
     {
 #if UNITY_STANDALONE
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
             TryJump();
         }
@@ -27,21 +37,15 @@ public class PlayerMove : MonoBehaviour
             TryJump();
         }
 #endif
+        transform.rotation = Quaternion.Lerp(transform.rotation, downRotation, tiltSmooth * Time.deltaTime);
     }
 
     private void TryJump()
     {
-        if (!jumpLoading)
-        {
-            rigidbody.AddForce(Vector2.up * force, ForceMode2D.Impulse);
-            StartCoroutine(StartJumpDelay());
-        }
-    }
+        animator.SetTrigger("Flapping");
+        rigidbody.velocity = Vector2.zero;
+        rigidbody.AddForce(Vector2.up * force, ForceMode2D.Force);
 
-    private IEnumerator StartJumpDelay()
-    {
-        jumpLoading = true;
-        yield return new WaitForSeconds(jumpDelayInSeconds);
-        jumpLoading = false;
+        transform.rotation = forwardRotation;
     }
 }
