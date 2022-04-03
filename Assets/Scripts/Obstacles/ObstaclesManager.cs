@@ -11,7 +11,7 @@ public class ObstaclesManager : MonoBehaviour
     public Transform BottomBorder => bottomBorder;
     public ObstaclesPull ObstaclesPull => obstaclePull;
     public static ObstaclesManager Instance;
-    public float Speed => speed;
+    public float ActualSpeed => actualSpeed;
 
     [SerializeField] private Transform obstaclesSpawn;
     [SerializeField] private Transform obstaclesEnd;
@@ -20,6 +20,7 @@ public class ObstaclesManager : MonoBehaviour
     [SerializeField] private List<Obstacle> obstaclePrefabs;
 
     [SerializeField] private float speed;
+    private float actualSpeed;
     [SerializeField] private float maxSpeed;
     [SerializeField] private float speedStep;
 
@@ -35,6 +36,7 @@ public class ObstaclesManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        actualSpeed = speed;
     }
 
     private void Start()
@@ -67,12 +69,18 @@ public class ObstaclesManager : MonoBehaviour
 
     public void Stop()
     {
-        speed = 0;
+        actualSpeed = 0;
+    }
+
+    public void Continue()
+    {
+        actualSpeed = speed;
     }
 
     public void IncreaseSpeed()
     {
         speed += speedStep;
         speed = Mathf.Min(speed, maxSpeed);
+        actualSpeed = speed;
     }
 }

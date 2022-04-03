@@ -17,4 +17,14 @@ public class Player : MonoBehaviour
         GameManager.Instance.End();
         Destroy(gameObject);
     }
+
+    public void Pause()
+    {
+        playerMove.Pause();
+    }
+
+    public void Continue()
+    {
+        playerMove.Continue();
+    }
 }

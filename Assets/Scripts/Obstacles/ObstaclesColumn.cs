@@ -92,7 +92,7 @@ public class ObstaclesColumn : MonoBehaviour, IDestroyable
 
     private void Move()
     {
-        float speed = ObstaclesManager.Instance.Speed;
+        float speed = ObstaclesManager.Instance.ActualSpeed;
         float distance = speed * Time.deltaTime;
 
         transform.position = new Vector3(transform.position.x - distance, transform.position.y, transform.position.z);

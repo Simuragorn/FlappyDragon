@@ -10,4 +10,9 @@ public class BackgroundScroller : MonoBehaviour
     {
         scrollableLayers.ForEach(layer => layer.Pause());
     }
+
+    public void Continue()
+    {
+        scrollableLayers.ForEach(layer => layer.Continue());
+    }
 }
