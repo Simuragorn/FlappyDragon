@@ -43,4 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd38f82e62665414db28a43d9275bf69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 0}
   backgroundScroller: {fileID: 0}
+  speedIncreaserScoreModulus: 5
+  settingsPanel: {fileID: 0}
+  deathPanel: {fileID: 0}

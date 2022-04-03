@@ -28,7 +28,8 @@ public class GameManager : MonoBehaviour
     public void End()
     {
         gameEnded = true;
-        Pause();
+        ObstaclesManager.Instance.Stop();
+        backgroundScroller.Pause();
         deathPanel.SetActive(true);
     }
 

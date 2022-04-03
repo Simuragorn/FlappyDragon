@@ -1,3 +1,4 @@
+using Assets.Scripts.Constants;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,10 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private PlayerMove playerMove;
+    [SerializeField] private SoundPlayer soundPlayer;
+    [SerializeField] private AudioClip flapAudioClip;
+    [SerializeField] private AudioClip deathAudioClip;
+    [SerializeField] private Animator animator;
     public static Player Instance;
 
     private void Awake()
@@ -12,9 +17,17 @@ public class Player : MonoBehaviour
         Instance = this;
     }
 
+    public void StartDeath()
+    {
+        soundPlayer.PlaySound(deathAudioClip);
+        GameManager.Instance.End();
+        playerMove.enabled = false;
+
+        animator.SetTrigger(TriggerConstants.StartDeathTrigger);
+    }
+
     public void Death()
     {
-        GameManager.Instance.End();
         Destroy(gameObject);
     }
 
@@ -26,5 +39,10 @@ public class Player : MonoBehaviour
     public void Continue()
     {
         playerMove.Continue();
+    }
+
+    public void PlayFlapSound()
+    {
+        soundPlayer.PlaySound(flapAudioClip);
     }
 }

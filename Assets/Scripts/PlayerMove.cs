@@ -1,3 +1,4 @@
+using Assets.Scripts.Constants;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -63,7 +64,7 @@ public class PlayerMove : MonoBehaviour
 
     private void TryJump()
     {
-        animator.SetTrigger("Flapping");
+        animator.SetTrigger(TriggerConstants.FlappingTrigger);
         rigidbody.velocity = Vector2.zero;
         rigidbody.AddForce(Vector2.up * force, ForceMode2D.Force);
 

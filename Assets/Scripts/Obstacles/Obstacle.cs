@@ -13,7 +13,7 @@ public class Obstacle : MonoBehaviour
     {
         if (collision.gameObject == Player.Instance.gameObject)
         {
-            Player.Instance.Death();
+            Player.Instance.StartDeath();
         }
     }
 }
