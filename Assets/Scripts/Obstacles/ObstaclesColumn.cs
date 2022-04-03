@@ -6,45 +6,31 @@ using UnityEngine;
 
 public class ObstaclesColumn : MonoBehaviour, IDestroyable
 {
-    [SerializeField] private float spaceBetweenLines;
-    [SerializeField] private int maxSpacesInRow;
     private BoxCollider2D collider;
     private List<Obstacle> obstacles;
+    [SerializeField] private int maxSpacesCount;
+    [SerializeField] private float paddingSpace;
 
     public void Init(float xPosition)
     {
         ClearObstacles();
 
         float yPosition = ObstaclesManager.Instance.BottomBorder.position.y;
-        int randomValue = Random.Range(0, 2);
-        bool startFromSpace = randomValue == 1;
-        if (startFromSpace)
-        {
-            float space = Random.Range(1, maxSpacesInRow + 1) * spaceBetweenLines;
-            yPosition += space;
-        }
+        float maxYPosition = ObstaclesManager.Instance.TopBorder.position.y;
 
-        do
+        while (yPosition < maxYPosition)
         {
             var obstacle = ObstaclesManager.Instance.ObstaclesPull.GetRandomFromPull();
 
-            if (ObstaclesManager.Instance.TopBorder.position.y - yPosition - obstacle.Heidth < spaceBetweenLines)
-            {
-                ObstaclesManager.Instance.ObstaclesPull.PutToPull(obstacle);
-                break;
-            }
             obstacle.gameObject.transform.parent = transform;
             yPosition += obstacle.Heidth / 2;
             Vector3 spawnPosition = new Vector3(0, yPosition, 0);
             obstacle.gameObject.transform.localPosition = spawnPosition;
             obstacles.Add(obstacle);
 
-            yPosition += obstacle.Heidth / 2;
-
-            float space = Random.Range(1, maxSpacesInRow + 1) * spaceBetweenLines;
-            yPosition += space;
-        } while (ObstaclesManager.Instance.TopBorder.position.y - yPosition > spaceBetweenLines);
-
+            yPosition += obstacle.Heidth / 2 + paddingSpace;
+        }
+        SetSpaces();
         float additionalWidth = 0;
         if (obstacles.Any())
         {
@@ -52,6 +38,15 @@ public class ObstaclesColumn : MonoBehaviour, IDestroyable
         }
         transform.localPosition = new Vector3(xPosition + additionalWidth, transform.localPosition.y, transform.localPosition.z);
         AddTrigger();
+    }
+
+    private void SetSpaces()
+    {
+        for (int i = 0; i < maxSpacesCount; ++i)
+        {
+            int obstacleId = Random.Range(0, obstacles.Count);
+            RemoveObstacleById(obstacleId);
+        }
     }
 
     private void AddTrigger()
@@ -71,9 +66,22 @@ public class ObstaclesColumn : MonoBehaviour, IDestroyable
     {
         if (obstacles != null)
         {
-            obstacles.ForEach(o => ObstaclesManager.Instance.ObstaclesPull.PutToPull(o));
+            for (int i = 0; i < obstacles.Count; ++i)
+            {
+                RemoveObstacleById(i);
+            }
         }
         obstacles = new List<Obstacle>();
+    }
+
+    private void RemoveObstacleById(int obstacleId)
+    {
+        if (obstacles.Count > obstacleId)
+        {
+            var obstacle = obstacles[obstacleId];
+            obstacles.RemoveAt(obstacleId);
+            ObstaclesManager.Instance.ObstaclesPull.PutToPull(obstacle);
+        }
     }
 
     private void FixedUpdate()

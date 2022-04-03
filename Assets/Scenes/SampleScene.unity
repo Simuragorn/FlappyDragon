@@ -643,7 +643,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1285607259299914128, guid: 988939d410c91bf4495e3646bebdf2ce, type: 3}
       propertyPath: speedStep
-      value: 1
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1285607259299914128, guid: 988939d410c91bf4495e3646bebdf2ce, type: 3}
+      propertyPath: spaceBetweenColumns
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1285607259299914128, guid: 988939d410c91bf4495e3646bebdf2ce, type: 3}
       propertyPath: obstaclePrefabs.Array.size
@@ -789,7 +793,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2958723811502127483, guid: 9cdc5849b48158f46b60f9b30700eab9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 2958723811502127483, guid: 9cdc5849b48158f46b60f9b30700eab9, type: 3}
       propertyPath: m_LocalPosition.y
