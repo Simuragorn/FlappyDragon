@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4e7e3a9e2bca2647bf254a0bd1de897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spaceBetweenLines: 2.5
+  spaceBetweenLines: 2
+  maxSpacesInRow: 3
 --- !u!50 &-2243618394555622079
 Rigidbody2D:
   serializedVersion: 4

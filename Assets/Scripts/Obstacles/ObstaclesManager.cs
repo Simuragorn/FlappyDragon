@@ -20,6 +20,9 @@ public class ObstaclesManager : MonoBehaviour
     [SerializeField] private List<Obstacle> obstaclePrefabs;
 
     [SerializeField] private float speed;
+    [SerializeField] private float maxSpeed;
+    [SerializeField] private float speedStep;
+
     [SerializeField] private float spaceBetweenColumns;
     [SerializeField] private Transform topBorder;
     [SerializeField] private Transform bottomBorder;
@@ -65,5 +68,11 @@ public class ObstaclesManager : MonoBehaviour
     public void Stop()
     {
         speed = 0;
+    }
+
+    public void IncreaseSpeed()
+    {
+        speed += speedStep;
+        speed = Mathf.Min(speed, maxSpeed);
     }
 }

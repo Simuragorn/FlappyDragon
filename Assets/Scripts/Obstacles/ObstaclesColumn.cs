@@ -7,6 +7,7 @@ using UnityEngine;
 public class ObstaclesColumn : MonoBehaviour, IDestroyable
 {
     [SerializeField] private float spaceBetweenLines;
+    [SerializeField] private int maxSpacesInRow;
     private BoxCollider2D collider;
     private List<Obstacle> obstacles;
 
@@ -19,7 +20,8 @@ public class ObstaclesColumn : MonoBehaviour, IDestroyable
         bool startFromSpace = randomValue == 1;
         if (startFromSpace)
         {
-            yPosition += spaceBetweenLines;
+            float space = Random.Range(1, maxSpacesInRow + 1) * spaceBetweenLines;
+            yPosition += space;
         }
 
         do
@@ -38,10 +40,16 @@ public class ObstaclesColumn : MonoBehaviour, IDestroyable
             obstacles.Add(obstacle);
 
             yPosition += obstacle.Heidth / 2;
-            yPosition += spaceBetweenLines;
+
+            float space = Random.Range(1, maxSpacesInRow + 1) * spaceBetweenLines;
+            yPosition += space;
         } while (ObstaclesManager.Instance.TopBorder.position.y - yPosition > spaceBetweenLines);
 
-        float additionalWidth = obstacles.Max(o => o.Width) / 2;
+        float additionalWidth = 0;
+        if (obstacles.Any())
+        {
+            additionalWidth = obstacles.Max(o => o.Width) / 2;
+        }
         transform.localPosition = new Vector3(xPosition + additionalWidth, transform.localPosition.y, transform.localPosition.z);
         AddTrigger();
     }
