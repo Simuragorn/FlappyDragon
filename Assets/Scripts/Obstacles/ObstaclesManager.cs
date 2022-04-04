@@ -79,6 +79,10 @@ public class ObstaclesManager : MonoBehaviour
 
     public void IncreaseSpeed()
     {
+        if (actualSpeed == 0)
+        {
+            return;
+        }
         speed += speedStep;
         speed = Mathf.Min(speed, maxSpeed);
         actualSpeed = speed;

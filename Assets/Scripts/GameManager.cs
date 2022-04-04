@@ -9,12 +9,16 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public int Score => score;
+    public bool GameEnded => gameEnded;
     [SerializeField] private Text scoreText;
 
     [SerializeField] private BackgroundScroller backgroundScroller;
     [SerializeField] private int speedIncreaserScoreModulus;
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private GameObject deathPanel;
+
+    [SerializeField] private AudioClip clashBonusScoreSound;
+    [SerializeField] private AudioClip distanceBonusScoreSound;
     private bool gameEnded;
     private int score;
 
@@ -33,7 +37,7 @@ public class GameManager : MonoBehaviour
         deathPanel.SetActive(true);
     }
 
-    public void AddScore(int bonusScore)
+    public void AddScore(int bonusScore, BonusScoreTypeEnum bonusScoreType)
     {
         score += bonusScore;
         scoreText.text = score.ToString();
@@ -41,6 +45,14 @@ public class GameManager : MonoBehaviour
         if (score % speedIncreaserScoreModulus == 0)
         {
             ObstaclesManager.Instance.IncreaseSpeed();
+            if (bonusScoreType == BonusScoreTypeEnum.Distance)
+            {
+                AudioSource.PlayClipAtPoint(distanceBonusScoreSound, Camera.main.transform.position);
+            }
+        }
+        if (bonusScoreType == BonusScoreTypeEnum.Clash)
+        {
+            AudioSource.PlayClipAtPoint(clashBonusScoreSound, Camera.main.transform.position);
         }
     }
 

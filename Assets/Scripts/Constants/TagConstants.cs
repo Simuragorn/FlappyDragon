@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.Constants
 {
-    public class TriggerConstants
+    public class TagConstants
     {
-        public const string FlappingTrigger = "Flapping";
+        public const string OBSTACLE_TAG= "Obstacle";
     }
 }

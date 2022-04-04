@@ -8,7 +8,7 @@ public class ObstaclesColumn : MonoBehaviour, IDestroyable
 {
     private BoxCollider2D collider;
     private List<Obstacle> obstacles;
-    [SerializeField] private int maxSpacesCount;
+    [SerializeField] private int spacesCount;
     [SerializeField] private float paddingSpace;
 
     public void Init(float xPosition)
@@ -42,7 +42,7 @@ public class ObstaclesColumn : MonoBehaviour, IDestroyable
 
     private void SetSpaces()
     {
-        for (int i = 0; i < maxSpacesCount; ++i)
+        for (int i = 0; i < spacesCount; ++i)
         {
             int obstacleId = Random.Range(0, obstacles.Count);
             RemoveObstacleById(obstacleId);
@@ -66,9 +66,10 @@ public class ObstaclesColumn : MonoBehaviour, IDestroyable
     {
         if (obstacles != null)
         {
-            for (int i = 0; i < obstacles.Count; ++i)
+            int obstaclesCount = obstacles.Count;
+            for (int i = 0; i < obstaclesCount; ++i)
             {
-                RemoveObstacleById(i);
+                RemoveObstacleById(0);
             }
         }
         obstacles = new List<Obstacle>();

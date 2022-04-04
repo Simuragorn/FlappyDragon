@@ -185,8 +185,8 @@ MonoBehaviour:
   playerMove: {fileID: 2958723811502127486}
   soundPlayer: {fileID: 7047434470059546982}
   flapAudioClip: {fileID: 8300000, guid: cdf2d63661065b04893184bd715f5426, type: 3}
-  deathAudioClip: {fileID: 8300000, guid: 4a4f138caee25624fbe7adc3835a1a9c, type: 3}
-  animator: {fileID: 2958723811502127485}
+  clashAudioClip: {fileID: 8300000, guid: 4a4f138caee25624fbe7adc3835a1a9c, type: 3}
+  fallAudioClip: {fileID: 8300000, guid: fe0b1f9aeb45b41b089175aeeabd5d95, type: 3}
 --- !u!114 &7047434470059546982
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,6 +17,8 @@ public class PlayerMove : MonoBehaviour
     private float gravityScale;
     private bool paused;
 
+    public Rigidbody2D Rigidbody => rigidbody;
+
     private void Start()
     {
         downRotation = Quaternion.Euler(0, 0, -90);

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6722567013155247880}
   m_Layer: 0
   m_Name: BlueBird
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,7 +127,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -146,6 +146,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collider: {fileID: 1383993938469802557}
+  rigidbody: {fileID: 140499682088425501}
+  clashSoreReward: 1
+  onClashGravityScale: 1
 --- !u!95 &6722567013155247880
 Animator:
   serializedVersion: 3

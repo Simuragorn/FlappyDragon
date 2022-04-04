@@ -8,8 +8,8 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerMove playerMove;
     [SerializeField] private SoundPlayer soundPlayer;
     [SerializeField] private AudioClip flapAudioClip;
-    [SerializeField] private AudioClip deathAudioClip;
-    [SerializeField] private Animator animator;
+    [SerializeField] private AudioClip clashAudioClip;
+    [SerializeField] private AudioClip fallAudioClip;
     public static Player Instance;
 
     private void Awake()
@@ -17,17 +17,33 @@ public class Player : MonoBehaviour
         Instance = this;
     }
 
-    public void StartDeath()
+    public void StartDeath(DeathTypeEnum deathType)
     {
-        soundPlayer.PlaySound(deathAudioClip);
+        if (GameManager.Instance.GameEnded)
+        {
+            return;
+        }
+
+        switch (deathType)
+        {
+            case DeathTypeEnum.Clash:
+                soundPlayer.PlaySound(clashAudioClip);
+                break;
+            case DeathTypeEnum.OutOfBorder:
+                soundPlayer.PlaySound(fallAudioClip);
+                break;
+        }
+
         GameManager.Instance.End();
         playerMove.enabled = false;
+        playerMove.Rigidbody.constraints = RigidbodyConstraints2D.None;
 
-        animator.SetTrigger(TriggerConstants.StartDeathTrigger);
+        StartCoroutine(DeathInDelay(5));
     }
 
-    public void Death()
+    public IEnumerator DeathInDelay(int seconds)
     {
+        yield return new WaitForSeconds(seconds);
         Destroy(gameObject);
     }
 

@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.Constants
 {
-    public class TriggerConstants
+    public enum DeathTypeEnum
     {
-        public const string FlappingTrigger = "Flapping";
+        Clash,
+        OutOfBorder
     }
 }
