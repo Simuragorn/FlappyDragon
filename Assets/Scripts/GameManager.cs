@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    public static GameManager Instance { private set; get; }
     public int Score => score;
     public bool GameEnded => gameEnded;
     [SerializeField] private Text scoreText;
@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
         ObstaclesManager.Instance.Stop();
         backgroundScroller.Pause();
         deathPanel.SetActive(true);
+
+        SaveScore();
     }
 
     public void AddScore(int bonusScore, BonusScoreTypeEnum bonusScoreType)
@@ -53,6 +55,11 @@ public class GameManager : MonoBehaviour
         if (bonusScoreType == BonusScoreTypeEnum.Clash)
         {
             AudioSource.PlayClipAtPoint(clashBonusScoreSound, Camera.main.transform.position);
+        }
+
+        if (gameEnded)
+        {
+            SaveScore();
         }
     }
 
@@ -82,6 +89,18 @@ public class GameManager : MonoBehaviour
         {
             Pause();
         }
+    }
+
+    private void SaveScore()
+    {
+        int bestScore = score;
+        if (PlayerPrefs.HasKey(PrefsConstants.SCORE_KEY))
+        {
+            int previousScore = PlayerPrefs.GetInt(PrefsConstants.SCORE_KEY);
+            bestScore = Mathf.Max(score, previousScore);
+        }
+        PlayerPrefs.SetInt(PrefsConstants.SCORE_KEY, bestScore);
+        PlayerPrefs.Save();
     }
 
     private void Pause()

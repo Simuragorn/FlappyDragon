@@ -12,9 +12,9 @@ public class MusicManager : MonoBehaviour
 
     private void Awake()
     {
-        if (PlayerPrefs.HasKey(PrefsConstants.isSoundOnKey))
+        if (PlayerPrefs.HasKey(PrefsConstants.IS_SOUND_ON_KEY))
         {
-            isSoundOn = PlayerPrefs.GetInt(PrefsConstants.isSoundOnKey) == 1;
+            isSoundOn = PlayerPrefs.GetInt(PrefsConstants.IS_SOUND_ON_KEY) == 1;
         }
         musicSource.playOnAwake = isSoundOn;
         if (!isSoundOn)
@@ -28,13 +28,13 @@ public class MusicManager : MonoBehaviour
     }
     public void PlayMusic()
     {
-        SceneManager.LoadScene((int)ScenesEnum.Level, LoadSceneMode.Single);
+        SceneManager.LoadScene((int)ScenesEnum.Level1, LoadSceneMode.Single);
     }
 
     public void TurnSound()
     {
         isSoundOn = !isSoundOn;
-        PlayerPrefs.SetInt(PrefsConstants.isSoundOnKey, isSoundOn ? 1 : 0);
+        PlayerPrefs.SetInt(PrefsConstants.IS_SOUND_ON_KEY, isSoundOn ? 1 : 0);
         musicSource.playOnAwake = isSoundOn;
         if (!isSoundOn)
         {

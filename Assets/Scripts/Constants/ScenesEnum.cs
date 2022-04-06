@@ -9,6 +9,8 @@ namespace Assets.Scripts.Constants
     public enum ScenesEnum
     {
         Menu,
-        Level
+        Level1,
+        Level2,
+        Level3,
     }
 }
