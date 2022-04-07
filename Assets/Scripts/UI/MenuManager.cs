@@ -66,7 +66,7 @@ public class MenuManager : MonoBehaviour
         if (lockedLevel != null)
         {
             scoreHintText.gameObject.SetActive(true);
-            scoreHintText.text = $"Get {lockedLevel.RequiredScore} score for unlock new level";
+            scoreHintText.text = $"Get {lockedLevel.RequiredScore} score to unlock new level";
         }
         else
         {
