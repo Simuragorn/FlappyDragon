@@ -1915,10 +1915,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1030139805642275380, guid: 7880008d99ae6fc4aa844e97c307aacf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 442d8366ad5d42f46acfc9133b342c22, type: 3}
+    - target: {fileID: 1030139805880110376, guid: 7880008d99ae6fc4aa844e97c307aacf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 01c1e211013f19a479f0e2c12fea10a2, type: 3}
+    - target: {fileID: 1030139805890228735, guid: 7880008d99ae6fc4aa844e97c307aacf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 442d8366ad5d42f46acfc9133b342c22, type: 3}
+    - target: {fileID: 1030139806001491414, guid: 7880008d99ae6fc4aa844e97c307aacf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 01c1e211013f19a479f0e2c12fea10a2, type: 3}
     - target: {fileID: 1030139806122476934, guid: 7880008d99ae6fc4aa844e97c307aacf, type: 3}
       propertyPath: camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 1030139806200352317, guid: 7880008d99ae6fc4aa844e97c307aacf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b670707b2788d99448bbb478fc248530, type: 3}
+    - target: {fileID: 1030139806212540048, guid: 7880008d99ae6fc4aa844e97c307aacf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c923db515dd60ec4e9cd1f350be245a9, type: 3}
+    - target: {fileID: 1030139806212540048, guid: 7880008d99ae6fc4aa844e97c307aacf, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1030139806274671988, guid: 7880008d99ae6fc4aa844e97c307aacf, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1967,14 +1995,54 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background
       objectReference: {fileID: 0}
+    - target: {fileID: 1030139806641310162, guid: 7880008d99ae6fc4aa844e97c307aacf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 1030139806641310163, guid: 7880008d99ae6fc4aa844e97c307aacf, type: 3}
       propertyPath: camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 1030139806742356116, guid: 7880008d99ae6fc4aa844e97c307aacf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c923db515dd60ec4e9cd1f350be245a9, type: 3}
+    - target: {fileID: 1030139806844948809, guid: 7880008d99ae6fc4aa844e97c307aacf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b670707b2788d99448bbb478fc248530, type: 3}
+    - target: {fileID: 1030139806894343067, guid: 7880008d99ae6fc4aa844e97c307aacf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b5b8e73cc720ab446a25f00fc5ae7dc6, type: 3}
+    - target: {fileID: 1030139806965092561, guid: 7880008d99ae6fc4aa844e97c307aacf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b670707b2788d99448bbb478fc248530, type: 3}
+    - target: {fileID: 1030139807028616727, guid: 7880008d99ae6fc4aa844e97c307aacf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b5b8e73cc720ab446a25f00fc5ae7dc6, type: 3}
+    - target: {fileID: 1030139807284140816, guid: 7880008d99ae6fc4aa844e97c307aacf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b5b8e73cc720ab446a25f00fc5ae7dc6, type: 3}
+    - target: {fileID: 1030139807441390043, guid: 7880008d99ae6fc4aa844e97c307aacf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 442d8366ad5d42f46acfc9133b342c22, type: 3}
+    - target: {fileID: 1030139807495676975, guid: 7880008d99ae6fc4aa844e97c307aacf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 01c1e211013f19a479f0e2c12fea10a2, type: 3}
     - target: {fileID: 1030139807498050212, guid: 7880008d99ae6fc4aa844e97c307aacf, type: 3}
       propertyPath: camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 1030139807504521496, guid: 7880008d99ae6fc4aa844e97c307aacf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c923db515dd60ec4e9cd1f350be245a9, type: 3}
     - target: {fileID: 1030139807703824431, guid: 7880008d99ae6fc4aa844e97c307aacf, type: 3}
       propertyPath: camera
       value: 
@@ -2043,6 +2111,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1280148378077741706, guid: 1feee39f7578af742a845570db7ded8d, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0e3b57fe9497c4a4cb25a0414d430a2c, type: 3}
     - target: {fileID: 1280148378077741707, guid: 1feee39f7578af742a845570db7ded8d, type: 3}
       propertyPath: m_Name
       value: MusicManager
@@ -2060,6 +2132,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -11
       objectReference: {fileID: 0}
+    - target: {fileID: 1285607259299914128, guid: 988939d410c91bf4495e3646bebdf2ce, type: 3}
+      propertyPath: obstaclePrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 7492749824624942697, guid: 05dcebd2cf062924eb5d5606fe98f153, type: 3}
     - target: {fileID: 1285607259299914129, guid: 988939d410c91bf4495e3646bebdf2ce, type: 3}
       propertyPath: m_RootOrder
       value: 3

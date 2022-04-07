@@ -21,8 +21,16 @@ MonoBehaviour:
     menuBackground: {fileID: 21300000, guid: fd00b29c3d9553d4c8e0ab3b572af409, type: 3}
     requiredScore: 20
     sceneId: 2
+  - name: Desert
+    menuBackground: {fileID: 21300000, guid: 9d1a3e0bc36dfc9468a738d92b6e92d4, type: 3}
+    requiredScore: 30
+    sceneId: 3
+  - name: Graveyard
+    menuBackground: {fileID: 21300000, guid: 367fef7c7a0cf8b4e8fc2020259965e9, type: 3}
+    requiredScore: 40
+    sceneId: 4
   currentLevel:
-    name: MountainsLevel
-    menuBackground: {fileID: 21300000, guid: fd00b29c3d9553d4c8e0ab3b572af409, type: 3}
-    requiredScore: 20
-    sceneId: 2
+    name: Graveyard
+    menuBackground: {fileID: 21300000, guid: 367fef7c7a0cf8b4e8fc2020259965e9, type: 3}
+    requiredScore: 40
+    sceneId: 4

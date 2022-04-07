@@ -24,6 +24,10 @@ public class PupilMover : MonoBehaviour
 
     private void WatchingPlayer()
     {
+        if (Player.Instance == null)
+        {
+            return;
+        }
         var direction = (Player.Instance.transform.position - transform.position).normalized;
         float distance = Time.deltaTime * moveSpeed;
         transform.Translate(direction.x * distance, direction.y * distance, 0, Space.Self);

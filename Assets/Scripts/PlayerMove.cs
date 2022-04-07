@@ -50,7 +50,7 @@ public class PlayerMove : MonoBehaviour
         {
             return;
         }
-#if UNITY_STANDALONE
+#if UNITY_STANDALONE || UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
             TryJump();

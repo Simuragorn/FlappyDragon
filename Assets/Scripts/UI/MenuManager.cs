@@ -26,6 +26,20 @@ public class MenuManager : MonoBehaviour
         levelsSelector.Init();
         SetScoreHint();
     }
+
+    private void Update()
+    {
+#if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            ClearAndReload();
+        }
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            UnlockAllAndReload();
+        }
+#endif
+    }
     public void Play()
     {
         var activeLevel = levelsSelector.ActiveLevel;
@@ -59,4 +73,19 @@ public class MenuManager : MonoBehaviour
             scoreHintText.gameObject.SetActive(false);
         }
     }
+    #region Testing
+    private void ClearAndReload()
+    {
+        PlayerPrefs.DeleteAll();
+        var activeScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(activeScene.buildIndex);
+    }
+
+    private void UnlockAllAndReload()
+    {
+        PlayerPrefs.SetInt(PrefsConstants.SCORE_KEY, 100);
+        var activeScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(activeScene.buildIndex);
+    }
+    #endregion
 }

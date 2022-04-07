@@ -77,6 +77,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuBackground: {fileID: 0}
   levelDB: {fileID: 11400000, guid: 99ac43cc139737040bf961597a5671af, type: 2}
-  levelIds: 0100000002000000
+  levelIds: 01000000020000000300000004000000
   levelButtonPrefab: {fileID: 8464785205889337197, guid: 97c0601265ba7bd449b0e10934add29b, type: 3}
   root: {fileID: 2913082234705417425}
