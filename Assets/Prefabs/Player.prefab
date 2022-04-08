@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 2958723811502127487}
   - component: {fileID: 2958723811502127486}
   - component: {fileID: 3275328797905268137}
-  - component: {fileID: 7047434470059546982}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -149,7 +148,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a578a904365ec324d9a6c3c908efd033, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -183,19 +182,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMove: {fileID: 2958723811502127486}
-  soundPlayer: {fileID: 7047434470059546982}
   flapAudioClip: {fileID: 8300000, guid: cdf2d63661065b04893184bd715f5426, type: 3}
   clashAudioClip: {fileID: 8300000, guid: 4a4f138caee25624fbe7adc3835a1a9c, type: 3}
   fallAudioClip: {fileID: 8300000, guid: fe0b1f9aeb45b41b089175aeeabd5d95, type: 3}
---- !u!114 &7047434470059546982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2958723811502127473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 002d7f6e631beab439368c0808acbe58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
