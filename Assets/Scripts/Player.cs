@@ -6,7 +6,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private PlayerMove playerMove;
-    [SerializeField] private SoundPlayer soundPlayer;
     [SerializeField] private AudioClip flapAudioClip;
     [SerializeField] private AudioClip clashAudioClip;
     [SerializeField] private AudioClip fallAudioClip;
@@ -27,10 +26,10 @@ public class Player : MonoBehaviour
         switch (deathType)
         {
             case DeathTypeEnum.Clash:
-                soundPlayer.PlaySound(clashAudioClip);
+                SoundManager.Instance.PlaySound(clashAudioClip);
                 break;
             case DeathTypeEnum.OutOfBorder:
-                soundPlayer.PlaySound(fallAudioClip);
+                SoundManager.Instance.PlaySound(fallAudioClip);
                 break;
         }
 
@@ -59,6 +58,6 @@ public class Player : MonoBehaviour
 
     public void PlayFlapSound()
     {
-        soundPlayer.PlaySound(flapAudioClip);
+        SoundManager.Instance.PlaySound(flapAudioClip);
     }
 }

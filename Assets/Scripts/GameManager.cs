@@ -49,12 +49,12 @@ public class GameManager : MonoBehaviour
             ObstaclesManager.Instance.IncreaseSpeed();
             if (bonusScoreType == BonusScoreTypeEnum.Distance)
             {
-                AudioSource.PlayClipAtPoint(distanceBonusScoreSound, Camera.main.transform.position);
+                SoundManager.Instance.PlaySound(distanceBonusScoreSound);
             }
         }
         if (bonusScoreType == BonusScoreTypeEnum.Clash)
         {
-            AudioSource.PlayClipAtPoint(clashBonusScoreSound, Camera.main.transform.position);
+            SoundManager.Instance.PlaySound(clashBonusScoreSound);
         }
 
         if (gameEnded)
