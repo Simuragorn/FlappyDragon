@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: f69aa69b02a0b5648a964408b0d83946
+  - enabled: 1
+    path: Assets/Scenes/Level_1(Snow).unity
+    guid: 3194641cc4c576642b89c97f244ef784
+  - enabled: 1
+    path: Assets/Scenes/Level_2(Mountain).unity
+    guid: 1c45c6a286cd74844ba053d4f75f4b08
+  - enabled: 1
+    path: Assets/Scenes/Level_3(Desert).unity
+    guid: 87a7701b317557849b224c279e0c21cb
+  - enabled: 1
+    path: Assets/Scenes/Level_4(Graveyard).unity
+    guid: 8ecef7c0f005225468f8fde3ce20adb2
+  m_configObjects: {}
